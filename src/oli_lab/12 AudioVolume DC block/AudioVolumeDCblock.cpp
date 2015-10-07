@@ -132,10 +132,23 @@ void AudioVolumeDCblock::onAfterQuery (MasterInfo* pMasterInfo, ModuleInfo* pMod
 
 //-----------------------------------------------------------------------------
 // initialisation
-void AudioVolumeDCblock::onInitModule (MasterInfo* pMasterInfo, ModuleInfo* pModuleInfo) {}
+void AudioVolumeDCblock::onInitModule(MasterInfo* pMasterInfo, ModuleInfo* pModuleInfo) {
 
-//----------------------------------------------------------------------------
-// parameters and process
+	//----------------------------------------------------------------------------
+	for (int i = 0; i < numOfAudiotInsOuts; i++)
+	{
+		//sdkCopyEvt(audioInputs[i], audioOutputs[i]);
+		sdkClearAudioEvt(audioOutputs[i]);
+
+		for (int j = 0; j < sdkGetEvtSize(audioOutputs[i]); j++)
+		{
+			sdkSetEvtArrayData(audioOutputs[i], j, 0);
+			audioOutputsM1[i] = sdkGetEvtArrayData(audioOutputs[i], j);
+			audioInputsM1[i] = sdkGetEvtArrayData(audioInputs[i], j);
+
+		}
+	}
+}
 //----------------------------------------------------------------------------
 
 //-----------------------------------------------------------------------------
@@ -246,8 +259,10 @@ void AudioVolumeDCblock::onProcess ()
 				
 		for (int j = 0; j < sdkGetEvtSize(audioOutputs[i]); j++)
 		{
-			audioOutputsM1[i] = 0.995f*audioOutputsM1[i] - audioInputsM1[i] + sdkGetEvtArrayData(audioInputs[i], j);
-			sdkSetEvtArrayData(audioOutputs[i], j, audioOutputsM1[i]);
+			//audioOutputsM1[i] = 0.995f*audioOutputsM1[i] - audioInputsM1[i] + sdkGetEvtArrayData(audioInputs[i], j);
+			sdkSetEvtArrayData(audioOutputs[i], j, (0.995f*audioOutputsM1[i] - audioInputsM1[i] + sdkGetEvtArrayData(audioInputs[i],j)));
+			//sdkSetEvtArrayData(audioOutputs[i], j, audioOutputsM1[i]);
+			audioOutputsM1[i] = sdkGetEvtArrayData(audioOutputs[i], j);
 			audioInputsM1[i] = sdkGetEvtArrayData(audioInputs[i], j);
 			//y = x - xm1 + 0.995 * ym1;
 			//xm1 = x;
