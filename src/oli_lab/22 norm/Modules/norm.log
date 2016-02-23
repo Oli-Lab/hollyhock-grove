@@ -1,0 +1,27 @@
+﻿La génération a démarré 18/06/2015 16:23:51.
+     1>Projet "C:\00Hollyhock\persolivar\developpement USINE\SDK HH2 6\modules olilab\22 norm\norm.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D _DEBUG /D _WINDOWS /D _WINDLL /D _MBCS /Gm- /EHa /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo".\Modules\\" /Fd".\Modules\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt norm.cpp
+         norm.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Modules\norm.usr-win32" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:".\Modules\norm.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Modules\norm.lib" /MACHINE:X86 /SAFESEH:NO /DLL .\Modules\UserModule.obj
+         .\Modules\UserUtils.obj
+         .\Modules\norm.obj
+            Création de la bibliothèque .\Modules\norm.lib et de l'objet .\Modules\norm.exp
+         norm.vcxproj -> C:\00Hollyhock\persolivar\developpement USINE\SDK HH2 6\modules olilab\22 norm\.\Modules\norm.usr-win32
+       PostBuildEvent:
+         xcopy /e /i /y ".\Modules\norm.usr-win32" "..\..\bin\All Modules\" 
+         xcopy /e /i /y ".\Modules\norm.usr-win32" "Modules\All Modules\"
+         :VCEnd
+         .\Modules\norm.usr-win32
+         1 fichier(s) copié(s)
+         0 fichier(s) copié(s)
+         Impossible de réaliser une copie cyclique
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: La commande "xcopy /e /i /y ".\Modules\norm.usr-win32" "..\..\bin\All Modules\" 
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: xcopy /e /i /y ".\Modules\norm.usr-win32" "Modules\All Modules\"
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(132,5): error MSB3073: :VCEnd" s'est arrêtée avec le code 4.
+     1>Génération du projet "C:\00Hollyhock\persolivar\developpement USINE\SDK HH2 6\modules olilab\22 norm\norm.vcxproj" terminée (Build cible(s)) -- ÉCHEC.
+
+ÉCHEC de la build.
+
+Temps écoulé 00:00:03.14
